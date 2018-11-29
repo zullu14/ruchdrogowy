@@ -1,10 +1,16 @@
 package gra;
 
+import java.awt.*;
+import javax.swing.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        ruch autko = new ruch();
-        System.out.println(autko.p);
+
+        Okno o = new Okno("Ruch Drogowy");
+        Plansza pl = new Plansza();
+        o.add(pl);
+        o.setVisible(true);
     }
 
 }
