@@ -40,7 +40,8 @@ public class Plansza extends Canvas {
 
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        Dimension wym = new Okno("okienko").getSize();
+        Dimension wym = this.getSize();
+        //wym.width += 200;
 
         g2.setStroke(new BasicStroke(6.0f));
         g2.setColor(Color.blue);
