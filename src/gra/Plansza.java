@@ -13,11 +13,13 @@ public class Plansza extends Canvas {
 
     public String s="halko";
     private int pas = 1;
+    private int punkty = 0;
+    private int level = 1;
     private Font f;
 
     Plansza() {
         super();
-        f = new Font("Calibri", Font.BOLD, 20);
+        f = new Font("Calibri", Font.BOLD, 30);
         setFont(f);
 
         addKeyListener(new KeyAdapter() {
@@ -27,12 +29,14 @@ public class Plansza extends Canvas {
                 if(ke.getKeyCode() == 37) {
                     s = "lewa strzałka";
                     pas = 0;
+                    punkty += 1;
                 }
                         else if(ke.getKeyCode() == 39) {
                             s = "prawa strzałka";
                             pas = 1;
+                            punkty += 1;
                 }
-                        else s = "debil";
+                        else punkty -= 1;
                 repaint();
             }
         });
@@ -41,7 +45,6 @@ public class Plansza extends Canvas {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         Dimension wym = this.getSize();
-        //wym.width += 200;
 
         g2.setStroke(new BasicStroke(6.0f));
         g2.setColor(Color.blue);
@@ -64,6 +67,20 @@ public class Plansza extends Canvas {
         else if(pas == 1) // wybrano strzałkę w prawo
             g2.drawImage(autko, wym.width/2 +10, wym.height -autko_h -50, null);
 
-        g2.drawString(s, 100, 100);
+        g2.drawString("PUNKTY: "+punkty, 100, 100);
+    } //paint
+
+    public void resetLevel() {
+        this.level = 1;
+        this.punkty = 0;
+        //wyzerowanie timera
+    }
+
+    public void freezeLevel() {
+        // zatrzymanie timera
+    }
+
+    public void resumeLevel() {
+        // puszczenie timera dalej
     }
 }
