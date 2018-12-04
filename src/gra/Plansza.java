@@ -42,16 +42,29 @@ public class Plansza extends Canvas {
         });
     } //Plansza()
 
+    public void update(Graphics g) {
+        paint(g);
+    }
+
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         Dimension wym = this.getSize();
 
-        g2.setStroke(new BasicStroke(6.0f));
+        /* Wczytanie obrazu tła */
+        BufferedImage background = null;
+        try {
+            background = ImageIO.read(new File("background.jpg"));
+        } catch (IOException e) {
+            s = "nie wczytano tła";
+        }
+        g2.drawImage(background, 0, 0, null);
+
+        /*g2.setStroke(new BasicStroke(6.0f));
         g2.setColor(Color.blue);
         Line2D linia = new Line2D.Double(wym.getWidth()/2, 0,wym.getWidth()/2, wym.getHeight());
-        g2.draw(linia);
+        g2.draw(linia); */
 
-        /* Create a BufferedImage */
+        /* Wczytanie obrazu autka */
         BufferedImage autko = null;
         try {
             autko = ImageIO.read(new File("autko.jpg"));
