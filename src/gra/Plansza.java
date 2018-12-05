@@ -3,11 +3,11 @@ package gra;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.*;
+import javax.swing.Timer;
 
 public class Plansza extends Canvas {
 
@@ -16,12 +16,30 @@ public class Plansza extends Canvas {
     private int predkosc = 20;
     private int punkty = 0;
     private int level = 1;
+    private int nrZnaku = 1;
+    private int timeCounter = 0;
     private Font f;
+
+    /* Swing Timer */
+    Timer timer = new Timer(100, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            timeCounter++;
+            if(timeCounter == 40) {
+                if(nrZnaku == 1) nrZnaku = 2;
+                else nrZnaku = 1;
+                timeCounter = 0;
+                repaint();
+            }
+        }
+    });
 
     Plansza() {
         super();
         f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
+
+        timer.setInitialDelay(1000);
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -43,7 +61,7 @@ public class Plansza extends Canvas {
                 }
                 else if(ke.getKeyCode() == 40) { //strzałka w dół
                     predkosc--;
-                    if (predkosc < 1) predkosc = 1;
+                    if (predkosc < 0) predkosc = 0;
                 }
                 else punkty -= 1;
 
@@ -51,6 +69,7 @@ public class Plansza extends Canvas {
             }
         });
     } //Plansza()
+
 
     public void update(Graphics g) {
         paint(g);
@@ -93,7 +112,7 @@ public class Plansza extends Canvas {
         /* Wczytywanie obrazów znaków drogowych */
         BufferedImage znak = null;
         try {
-            znak = ImageIO.read(new File("znak"+1+".png"));
+            znak = ImageIO.read(new File("znak"+nrZnaku+".png"));
         } catch (IOException e) {
             s = "nie wczytano znaku";
         }
@@ -104,19 +123,27 @@ public class Plansza extends Canvas {
         g2.drawString("PRĘDKOŚĆ: "+predkosc, 100, 200);
     } //paint
 
+    public void firstLevel() {
+        this.level = 1;
+        this.punkty = 0;
+        this.pas = 2;
+        this.predkosc = 20;
+        this.timer.start();
+    }
+
     public void resetLevel() {
         this.level = 1;
         this.punkty = 0;
         this.pas = 2;
         this.predkosc = 20;
-        //wyzerowanie timera
+        this.timer.restart();
     }
 
     public void freezeLevel() {
-        // zatrzymanie timera
+        this.timer.stop();
     }
 
     public void resumeLevel() {
-        // puszczenie timera dalej
+        this.timer.start();
     }
 }

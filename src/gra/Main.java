@@ -1,7 +1,5 @@
 package gra;
 
-import javafx.scene.layout.BorderRepeat;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,6 +65,7 @@ public class Main extends JFrame {
 
                         start.setVisible(false);
                         o.setVisible(true);
+                        poleGry.firstLevel();
 
 
                     } //actionEvent
