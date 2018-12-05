@@ -12,31 +12,41 @@ import javax.imageio.*;
 public class Plansza extends Canvas {
 
     public String s="halko";
-    private int pas = 1;
+    private int pas = 2;
+    private int predkosc = 20;
     private int punkty = 0;
     private int level = 1;
     private Font f;
 
     Plansza() {
         super();
-        f = new Font("Calibri", Font.BOLD, 30);
+        f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
 
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent ke) {
                 s = ke.paramString();
-                if(ke.getKeyCode() == 37) {
-                    s = "lewa strzałka";
-                    pas = 0;
-                    punkty += 1;
+                if(ke.getKeyCode() == 37) {    // lewa strzałka
+                    pas--;
+                    if (pas < 0) pas = 0;
+                    punkty++;
                 }
-                        else if(ke.getKeyCode() == 39) {
-                            s = "prawa strzałka";
-                            pas = 1;
-                            punkty += 1;
+                else if(ke.getKeyCode() == 39) {  // prawa strzałka
+                    pas++;
+                    if (pas > 2) pas = 2;
+                    punkty++;
                 }
-                        else punkty -= 1;
+                else if(ke.getKeyCode() == 38) { // strzałka w górę
+                    predkosc++;
+                    if (predkosc > 160) predkosc = 160;    // zmienić tak, żeby bez dodawania gazu tracił prędkość z czasem
+                }
+                else if(ke.getKeyCode() == 40) { //strzałka w dół
+                    predkosc--;
+                    if (predkosc < 1) predkosc = 1;
+                }
+                else punkty -= 1;
+
                 repaint();
             }
         });
@@ -59,33 +69,46 @@ public class Plansza extends Canvas {
         }
         g2.drawImage(background, 0, 0, null);
 
-        /*g2.setStroke(new BasicStroke(6.0f));
-        g2.setColor(Color.blue);
-        Line2D linia = new Line2D.Double(wym.getWidth()/2, 0,wym.getWidth()/2, wym.getHeight());
-        g2.draw(linia); */
 
         /* Wczytanie obrazu autka */
         BufferedImage autko = null;
         try {
-            autko = ImageIO.read(new File("autko.jpg"));
+            autko = ImageIO.read(new File("autko.png"));
         } catch (IOException e) {
             s = "nie wczytano autka";
         }
         int autko_w = autko.getWidth(null);
         int autko_h = autko.getHeight(null);
 
-        if(pas == 0) { // wybrano strzałkę w lewo
-            g2.drawImage(autko,wym.width/2 -autko_w -10, wym.height -autko_h -50, null);
+        if (pas == 0) { //pas lewy
+            g2.drawImage(autko,wym.width/2 -autko_w -80, wym.height -autko_h -predkosc+20, null);
         }
-        else if(pas == 1) // wybrano strzałkę w prawo
-            g2.drawImage(autko, wym.width/2 +10, wym.height -autko_h -50, null);
+        else if (pas == 1) { //pas środkowy
+            g2.drawImage(autko, wym.width / 2 + -60, wym.height - autko_h -predkosc+20, null);
+        }
+        else if (pas == 2) { //pas prawy
+            g2.drawImage(autko, wym.width / 2 + 60, wym.height - autko_h -predkosc+20, null);
+        }
+
+        /* Wczytywanie obrazów znaków drogowych */
+        BufferedImage znak = null;
+        try {
+            znak = ImageIO.read(new File("znak"+1+".png"));
+        } catch (IOException e) {
+            s = "nie wczytano znaku";
+        }
+        g2.drawImage(znak, 900, 100, null);
+
 
         g2.drawString("PUNKTY: "+punkty, 100, 100);
+        g2.drawString("PRĘDKOŚĆ: "+predkosc, 100, 200);
     } //paint
 
     public void resetLevel() {
         this.level = 1;
         this.punkty = 0;
+        this.pas = 2;
+        this.predkosc = 20;
         //wyzerowanie timera
     }
 
