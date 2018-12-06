@@ -11,6 +11,7 @@ import javax.swing.Timer;
 
 public class Plansza extends Canvas {
 
+    //Dimension wym = this.getSize();
     public String s="halko";
     private int pas = 2;
     private int predkosc = 20;
@@ -18,6 +19,7 @@ public class Plansza extends Canvas {
     private int level = 1;
     private int nrZnaku = 1;
     private int timeCounter = 0;
+    private int wysKrzaka = 0;
     private Font f;
 
     /* Swing Timer */
@@ -25,13 +27,32 @@ public class Plansza extends Canvas {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             timeCounter++;
-            if(timeCounter == 40) {
-                if(nrZnaku == 1) nrZnaku = 2;
+            wysKrzaka++;
+
+            if (timeCounter >= 40) {
+                if (nrZnaku == 1) nrZnaku = 2;
                 else nrZnaku = 1;
                 timeCounter = 0;
-                repaint();
+                repaint(900, 100, 250, 250); //narysuj tylko nowy znak
             }
-        }
+            else {
+                if (predkosc > 30) {
+                    wysKrzaka++;
+                }
+                if (predkosc > 60) {
+                    wysKrzaka++;
+                }
+                if (predkosc > 100) {
+                    wysKrzaka++;
+                }
+                if (predkosc > 130) {
+                    wysKrzaka++;
+                }
+
+                repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
+                if (wysKrzaka >= 900) wysKrzaka = 0;
+            }
+        } // time action event
     });
 
     Plansza() {
@@ -65,7 +86,7 @@ public class Plansza extends Canvas {
                 }
                 else punkty -= 1;
 
-                repaint();
+                repaint(450, 600, 400, 300);
             }
         });
     } //Plansza()
@@ -77,7 +98,7 @@ public class Plansza extends Canvas {
 
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        Dimension wym = this.getSize();
+        Dimension wym = this.getSize(); //przeniesione na zewnątrz metody
 
         /* Wczytanie obrazu tła */
         BufferedImage background = null;
@@ -109,6 +130,15 @@ public class Plansza extends Canvas {
             g2.drawImage(autko, wym.width / 2 + 60, wym.height - autko_h -predkosc+20, null);
         }
 
+        /* Rysowanie krzaka */
+        BufferedImage krzak = null;
+        try {
+            krzak = ImageIO.read(new File("krzak.png"));
+        } catch (IOException e) {
+            s = "nie wczytano krzaka";
+        }
+        g2.drawImage(krzak, 100, wysKrzaka, null);
+
         /* Wczytywanie obrazów znaków drogowych */
         BufferedImage znak = null;
         try {
@@ -119,8 +149,8 @@ public class Plansza extends Canvas {
         g2.drawImage(znak, 900, 100, null);
 
 
-        g2.drawString("PUNKTY: "+punkty, 100, 100);
-        g2.drawString("PRĘDKOŚĆ: "+predkosc, 100, 200);
+        g2.drawString("PUNKTY: "+punkty, 900, 500);
+        g2.drawString("PRĘDKOŚĆ: "+predkosc, 900, 600);
     } //paint
 
     public void firstLevel() {

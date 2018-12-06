@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego">
+    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$2.class" afterDir="false" />
@@ -11,9 +11,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Plansza.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -85,11 +82,12 @@
     <session id="619514330">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.90" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -106,25 +104,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2923" />
-          <entry key="txt" value="171" />
+          <entry key="java" value="3470" />
+          <entry key="txt" value="175" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2923" />
-          <entry key="PLAIN_TEXT" value="171" />
+          <entry key="JAVA" value="3470" />
+          <entry key="PLAIN_TEXT" value="175" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="54">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/MenuButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="156">
               <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -170,13 +168,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1444#2452#0" expanded="true" />
+                <element signature="e#2451#2452#0" expanded="true" />
+                <element signature="e#2510#2511#0" expanded="true" />
+                <element signature="e#2534#2535#0" expanded="true" />
+                <element signature="e#4779#4780#0" expanded="true" />
+                <element signature="e#4812#4813#0" expanded="true" />
+                <element signature="e#4845#4846#0" expanded="true" />
+                <element signature="e#4879#4880#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,6 +197,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>repaint</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -202,12 +213,12 @@
         <option value="$PROJECT_DIR$/src/gra/Okno.java" />
         <option value="$PROJECT_DIR$/src/gra/MenuButton.java" />
         <option value="$PROJECT_DIR$/src/gra/ChoiceButton.java" />
-        <option value="$PROJECT_DIR$/src/gra/Plansza.java" />
         <option value="$PROJECT_DIR$/src/gra/Main.java" />
+        <option value="$PROJECT_DIR$/src/gra/Plansza.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="3875" />
@@ -248,7 +259,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543962089690" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544131324848" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -338,7 +349,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15157612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15358819" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -347,7 +358,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32577905" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,7 +414,8 @@
     <MESSAGE value="Prace nad layoutem i przechodzeniem między oknami cz. 2.&#10;Dodano okno menu i odpowiednie przyciski." />
     <MESSAGE value="Praca nad dodaniem i rysowaniem tła gry" />
     <MESSAGE value="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego" />
+    <MESSAGE value="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prace nad pozycją i prędkością pojazdu, wprowadzenie znaku drogowego 2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
@@ -433,16 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/MenuButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/Okno.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -455,22 +457,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
+    <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        <state relative-caret-position="54">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/gra/MenuButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="156">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1444#2452#0" expanded="true" />
+            <element signature="e#2451#2452#0" expanded="true" />
+            <element signature="e#2510#2511#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#4779#4780#0" expanded="true" />
+            <element signature="e#4812#4813#0" expanded="true" />
+            <element signature="e#4845#4846#0" expanded="true" />
+            <element signature="e#4879#4880#0" expanded="true" />
           </folding>
         </state>
       </provider>
