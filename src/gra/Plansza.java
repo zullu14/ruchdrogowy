@@ -11,8 +11,7 @@ import javax.swing.Timer;
 
 public class Plansza extends Canvas {
 
-    //Dimension wym = this.getSize();
-    public String s="halko";
+    private String s="halko";
     private int pas = 2;
     private int predkosc = 20;
     private int punkty = 0;
@@ -20,13 +19,14 @@ public class Plansza extends Canvas {
     private int nrZnaku = 1;
     private int timeCounter = 0;
     private int wysKrzaka = 0;
-    private Font f;
 
     /* Swing Timer */
-    Timer timer = new Timer(100, new ActionListener() {
+    private Timer timer = new Timer(100, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             timeCounter++;
+            if(timeCounter % 10 == 0) predkosc--;
+            if(predkosc<0) predkosc = 0;
 
             if (timeCounter >= 40) {
                 if (nrZnaku == 1) nrZnaku = 2;
@@ -60,7 +60,7 @@ public class Plansza extends Canvas {
 
     Plansza() {
         super();
-        f = new Font("Calibri", Font.BOLD, 40);
+        Font f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
 
         timer.setInitialDelay(1000);

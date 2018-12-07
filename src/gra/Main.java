@@ -66,19 +66,24 @@ public class Main extends JFrame {
                 menuPanel.add(finishB);
                 oknoMenu.add(menuPanel, BorderLayout.CENTER);
 
-
-                poleGry.addKeyListener(new KeyAdapter() {
+                Timer timer0 = new Timer(100, new ActionListener() {
+                    int v0 = 20;
+                    int p0 = 0;
                     @Override
-                    public void keyPressed(KeyEvent ke) {
-                        if((ke.getKeyCode() == 37) || (ke.getKeyCode() == 39)) {    // lewa strzałka
-                            punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
-                        }
-                        else if((ke.getKeyCode() == 38) || (ke.getKeyCode() == 40)) { // strzałka w górę
+                    public void actionPerformed(ActionEvent actionEvent) {
+                        // gdy zmieni się prędkość
+                        if(v0 != poleGry.getPredkosc()) {
                             predkosc.setText("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc()));
+                            v0 = poleGry.getPredkosc();
+                        }
+                        // gdy zmienią się punkty
+                        if(p0 != poleGry.getPunkty()) {
+                            punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
+                            p0 = poleGry.getPunkty();
                         }
 
                     }
-                }); //keyListener
+                });
 
                 b_start.addActionListener(new ActionListener() {
                     @Override
@@ -87,6 +92,7 @@ public class Main extends JFrame {
                         start.setVisible(false);
                         o.setVisible(true);
                         poleGry.firstLevel();
+                        timer0.start();
 
 
                     } //actionEvent
@@ -97,6 +103,7 @@ public class Main extends JFrame {
                     public void actionPerformed(ActionEvent actionEvent) {
 
                         poleGry.freezeLevel();
+                        timer0.stop();
                         o.setVisible(false);
                         oknoMenu.setVisible(true);
 
@@ -110,6 +117,7 @@ public class Main extends JFrame {
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
                         poleGry.resumeLevel();
+                        timer0.start();
                     }
                 });
 
@@ -120,8 +128,7 @@ public class Main extends JFrame {
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
                         poleGry.resetLevel();
-                        punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
-                        predkosc.setText("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc()));
+                        timer0.restart();;
 
                     }
                 });
