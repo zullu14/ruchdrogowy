@@ -8,16 +8,19 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.*;
 import javax.swing.Timer;
+import java.util.Random;
 
 public class Plansza extends Canvas {
 
     private String s="halko";
+    private String komunikat = "start";
     private int pas = 2;
     private int predkosc = 20;
     private int punkty = 0;
     private int level = 1;
     private int nrZnaku = 1;
     private int timeCounter = 0;
+    private int timeLimit = 40;
     private int wysKrzaka = 0;
 
     /* Swing Timer */
@@ -25,24 +28,36 @@ public class Plansza extends Canvas {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             timeCounter++;
-            if(timeCounter % 10 == 0) predkosc--;
+            if(timeCounter % 10 == 0) {  // co 1 sekundę
+                predkosc--;
+                repaint(900, 600, 350, 300); //narysuj tylko pole pod znakiem
+            }
+
             if(predkosc<0) predkosc = 0;
 
-            if (timeCounter >= 40) {
-                if (nrZnaku == 1) nrZnaku = 2;
-                else nrZnaku = 1;
+            if (timeCounter >= timeLimit) {
+                // obsługa sprawdzenia poprawnej reakcji na znak
+                if(new Znak().sprawdzZnak(nrZnaku, pas, predkosc)) {
+                    punkty++;
+                    komunikat = "Dobrze!";
+                }
+                else {
+                    // obsługa popełnienia błędu: trzy szanse / koniec gry?
+                    komunikat = "Błąd!";
+                }
+                nrZnaku = new Znak().losujZnak();
                 timeCounter = 0;
-                repaint(900, 100, 250, 250); //narysuj tylko nowy znak
+                repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
             }
             else {
                 if (predkosc > 0) {
-                    wysKrzaka++;
+                    wysKrzaka+=2;
                 }
                 if (predkosc > 30) {
-                    wysKrzaka++;
+                    wysKrzaka+=2;
                 }
                 if (predkosc > 60) {
-                    wysKrzaka++;
+                    wysKrzaka+=2;
                 }
                 if (predkosc > 100) {
                     wysKrzaka+=2;
@@ -72,12 +87,12 @@ public class Plansza extends Canvas {
                 if(ke.getKeyCode() == 37) {    // lewa strzałka
                     pas--;
                     if (pas < 0) pas = 0;
-                    punkty++;
+                    //punkty++;
                 }
                 else if(ke.getKeyCode() == 39) {  // prawa strzałka
                     pas++;
                     if (pas > 2) pas = 2;
-                    punkty++;
+                    //punkty++;
                 }
                 else if(ke.getKeyCode() == 38) { // strzałka w górę
                     predkosc++;
@@ -87,7 +102,7 @@ public class Plansza extends Canvas {
                     predkosc--;
                     if (predkosc < 0) predkosc = 0;
                 }
-                else punkty -= 1;
+                //else punkty -= 1;
 
                 repaint(450, 600, 400, 300);
             }
@@ -150,6 +165,9 @@ public class Plansza extends Canvas {
             s = "nie wczytano znaku";
         }
         g2.drawImage(znak, 900, 100, null);
+        if (timeCounter != 0)
+        g2.drawString(Integer.toString((timeLimit - timeCounter) / 10), 900, 600);
+        else g2.drawString(komunikat, 900,600);
     } //paint
 
     public void firstLevel() {
