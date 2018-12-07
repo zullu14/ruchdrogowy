@@ -27,7 +27,6 @@ public class Plansza extends Canvas {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             timeCounter++;
-            wysKrzaka++;
 
             if (timeCounter >= 40) {
                 if (nrZnaku == 1) nrZnaku = 2;
@@ -36,6 +35,9 @@ public class Plansza extends Canvas {
                 repaint(900, 100, 250, 250); //narysuj tylko nowy znak
             }
             else {
+                if (predkosc > 0) {
+                    wysKrzaka++;
+                }
                 if (predkosc > 30) {
                     wysKrzaka++;
                 }
@@ -43,10 +45,11 @@ public class Plansza extends Canvas {
                     wysKrzaka++;
                 }
                 if (predkosc > 100) {
-                    wysKrzaka++;
+                    wysKrzaka+=2;
+
                 }
                 if (predkosc > 130) {
-                    wysKrzaka++;
+                    wysKrzaka+=2;
                 }
 
                 repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
@@ -147,10 +150,6 @@ public class Plansza extends Canvas {
             s = "nie wczytano znaku";
         }
         g2.drawImage(znak, 900, 100, null);
-
-
-        g2.drawString("PUNKTY: "+punkty, 900, 500);
-        g2.drawString("PRĘDKOŚĆ: "+predkosc, 900, 600);
     } //paint
 
     public void firstLevel() {
@@ -176,4 +175,17 @@ public class Plansza extends Canvas {
     public void resumeLevel() {
         this.timer.start();
     }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getPredkosc() {
+        return predkosc;
+    }
+
+    public int getPunkty() {
+        return punkty;
+    }
 }
+

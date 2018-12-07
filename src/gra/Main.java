@@ -3,6 +3,8 @@ package gra;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -35,7 +37,12 @@ public class Main extends JFrame {
                 o.add(poleGry, BorderLayout.CENTER);
 
                 JPanel menubar =new JPanel();
+                JLabel punktacja = new MyLabel("PUNKTY: "+Integer.toString(poleGry.getPunkty())); //probne
+                JLabel predkosc = new MyLabel("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc())); //probne
                 menubar.setLayout(new BoxLayout(menubar, BoxLayout.LINE_AXIS));
+                menubar.add(punktacja); //probne
+                menubar.add(Box.createRigidArea(new Dimension(100, 0)));
+                menubar.add(predkosc); //probne
                 menubar.add(Box.createHorizontalGlue());
                 JButton mButton = new MenuButton("MENU");
                 menubar.add(mButton);
@@ -58,6 +65,20 @@ public class Main extends JFrame {
                 menuPanel.add(Box.createRigidArea(new Dimension(0, 20)));
                 menuPanel.add(finishB);
                 oknoMenu.add(menuPanel, BorderLayout.CENTER);
+
+
+                poleGry.addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent ke) {
+                        if((ke.getKeyCode() == 37) || (ke.getKeyCode() == 39)) {    // lewa strzałka
+                            punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
+                        }
+                        else if((ke.getKeyCode() == 38) || (ke.getKeyCode() == 40)) { // strzałka w górę
+                            predkosc.setText("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc()));
+                        }
+
+                    }
+                }); //keyListener
 
                 b_start.addActionListener(new ActionListener() {
                     @Override
@@ -99,6 +120,9 @@ public class Main extends JFrame {
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
                         poleGry.resetLevel();
+                        punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
+                        predkosc.setText("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc()));
+
                     }
                 });
 
