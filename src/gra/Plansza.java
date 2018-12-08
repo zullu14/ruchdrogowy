@@ -19,22 +19,27 @@ public class Plansza extends Canvas {
     private int level = 1;
     private int nrZnaku = 1;
     private int timeCounter = 0;
-    private int timeLimit = 40;
+    private int timeLimit = 500;
     private int wysKrzaka = 0;
 
+    private BufferedImage background = null;
+    private BufferedImage autko = null;
+    private BufferedImage krzak = null;
+    private BufferedImage znak = null;
+
     /* Swing Timer */
-    private Timer timer = new Timer(100, new ActionListener() {
+    private Timer timer = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             timeCounter++;
-            if(timeCounter % 10 == 0) {  // co 1 sekundę
+            if(timeCounter % 100 == 0) {  // co 1 sekundę
                 predkosc--;
                 repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
             }
 
             if(predkosc<0) predkosc = 0;
 
-            if (timeCounter >= timeLimit) {
+            if (timeCounter == timeLimit) {
                 // obsługa sprawdzenia poprawnej reakcji na znak
                 if(new Znak().sprawdzZnak(nrZnaku, pas, predkosc)) {
                     punkty++;
@@ -44,31 +49,32 @@ public class Plansza extends Canvas {
                     // obsługa popełnienia błędu: trzy szanse / koniec gry?
                     komunikat = "Błąd!";
                 }
+                repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+            } // warunek tC >= tL
+            else if(timeCounter-timeLimit == 100) { // jedna sekunda przerwy między znakami
                 nrZnaku = new Znak().losujZnak();
                 timeCounter = 0;
                 repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
-            } // warunek tC >= tL
-            else {
+            }
+            if (timeCounter % 5 == 0) {   // co 50 ms
                 if (predkosc > 0) {
-                    wysKrzaka+=2;
+                    wysKrzaka+=3;
                 }
                 if (predkosc > 30) {
-                    wysKrzaka+=2;
+                    wysKrzaka+=3;
                 }
                 if (predkosc > 60) {
-                    wysKrzaka+=2;
+                    wysKrzaka+=3;
                 }
                 if (predkosc > 100) {
-                    wysKrzaka+=2;
-
+                    wysKrzaka+=3;
                 }
                 if (predkosc > 130) {
-                    wysKrzaka+=2;
+                    wysKrzaka+=3;
                 }
-
                 repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
                 if (wysKrzaka >= 900) wysKrzaka = 0;
-            }
+            }  // koniec akcji co 50 ms
         } // time action event
     });
 
@@ -76,6 +82,29 @@ public class Plansza extends Canvas {
         super();
         Font f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
+
+        /*   WCZYTANIE OBRAZÓW   */
+
+        /* Wczytanie obrazu tła */
+        try {
+            background = ImageIO.read(new File("background.jpg"));
+        } catch (IOException e) {
+            s = "nie wczytano tła";
+        }
+
+        /* Wczytanie obrazu autka */
+        try {
+            autko = ImageIO.read(new File("autko.png"));
+        } catch (IOException e) {
+            s = "nie wczytano autka";
+        }
+
+        /*Wczytanie obrazu krzaka */
+        try {
+            krzak = ImageIO.read(new File("krzak.png"));
+        } catch (IOException e) {
+            s = "nie wczytano krzaka";
+        }
 
         timer.setInitialDelay(1000);
 
@@ -117,23 +146,8 @@ public class Plansza extends Canvas {
         Graphics2D g2 = (Graphics2D) g;
         Dimension wym = this.getSize(); //przeniesione na zewnątrz metody
 
-        /* Wczytanie obrazu tła */
-        BufferedImage background = null;
-        try {
-            background = ImageIO.read(new File("background.jpg"));
-        } catch (IOException e) {
-            s = "nie wczytano tła";
-        }
         g2.drawImage(background, 0, 0, null);
 
-
-        /* Wczytanie obrazu autka */
-        BufferedImage autko = null;
-        try {
-            autko = ImageIO.read(new File("autko.png"));
-        } catch (IOException e) {
-            s = "nie wczytano autka";
-        }
         int autko_w = autko.getWidth(null);
         int autko_h = autko.getHeight(null);
 
@@ -148,32 +162,29 @@ public class Plansza extends Canvas {
         }
 
         /* Rysowanie krzaka */
-        BufferedImage krzak = null;
-        try {
-            krzak = ImageIO.read(new File("krzak.png"));
-        } catch (IOException e) {
-            s = "nie wczytano krzaka";
-        }
-        // dodanie wysokości krzaka 2 zależnej od wysokości krzaka 1
+
         int wysKrzaka2 = wysKrzaka+200;
         if(wysKrzaka>=700) wysKrzaka2 = wysKrzaka-700;
+        int wysKrzaka3 = wysKrzaka+600;
+        if(wysKrzaka>=300) wysKrzaka3 = wysKrzaka-300;
         g2.drawImage(krzak, 80, wysKrzaka, null);
         g2.drawImage(krzak, 190, wysKrzaka2, null);
         g2.drawImage(krzak, 300, wysKrzaka, null);
+        g2.drawImage(krzak, 100, wysKrzaka3, null);
 
         /* Wczytywanie obrazów znaków drogowych */
-        BufferedImage znak = null;
         try {
             znak = ImageIO.read(new File("znak"+nrZnaku+".png"));
         } catch (IOException e) {
             s = "nie wczytano znaku";
         }
+
         Font fd = new Font("Calibri", Font.BOLD, 60);
         g2.setFont(fd);
         g2.drawImage(znak, 900, 100, null);
-        if (timeCounter != 0)
-        g2.drawString(Integer.toString((timeLimit - timeCounter) / 10), 1100, 600);
-        else g2.drawString(komunikat, 1000,600);
+        if (timeCounter < timeLimit)
+        g2.drawString(Integer.toString((timeLimit - timeCounter) / 100), 1000, 600);
+        else if(timeCounter == timeLimit) g2.drawString(komunikat, 950,600);
     } //paint
 
     public void firstLevel() {

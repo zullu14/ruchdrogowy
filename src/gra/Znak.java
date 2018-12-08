@@ -11,7 +11,7 @@ public class Znak {
 
     public int losujZnak() {
         Random gen = new Random();
-        return gen.nextInt(3)+1;  // losowo generuj numer znaku z dostępnych ...2
+        return gen.nextInt(4)+1;  // losowo generuj numer znaku z dostępnych ...2
     }
 
     /*pas lewy = 0, pas środkowy = 1, pas prawy = 2 */
@@ -31,6 +31,10 @@ public class Znak {
             case 3:
                 if (pas == 1) sprawdz = true;
                 else sprawdz = false;
+                break;
+            case 4:
+                if (velocity > 50) sprawdz = false;
+                else sprawdz = true;
                 break;
             default:
                 sprawdz = true;  // default
