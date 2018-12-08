@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.*;
 import javax.swing.Timer;
-import java.util.Random;
 
 public class Plansza extends Canvas {
 
@@ -30,7 +29,7 @@ public class Plansza extends Canvas {
             timeCounter++;
             if(timeCounter % 10 == 0) {  // co 1 sekundę
                 predkosc--;
-                repaint(900, 600, 350, 300); //narysuj tylko pole pod znakiem
+                repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
             }
 
             if(predkosc<0) predkosc = 0;
@@ -48,7 +47,7 @@ public class Plansza extends Canvas {
                 nrZnaku = new Znak().losujZnak();
                 timeCounter = 0;
                 repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
-            }
+            } // warunek tC >= tL
             else {
                 if (predkosc > 0) {
                     wysKrzaka+=2;
@@ -155,7 +154,12 @@ public class Plansza extends Canvas {
         } catch (IOException e) {
             s = "nie wczytano krzaka";
         }
-        g2.drawImage(krzak, 100, wysKrzaka, null);
+        // dodanie wysokości krzaka 2 zależnej od wysokości krzaka 1
+        int wysKrzaka2 = wysKrzaka+200;
+        if(wysKrzaka>=700) wysKrzaka2 = wysKrzaka-700;
+        g2.drawImage(krzak, 80, wysKrzaka, null);
+        g2.drawImage(krzak, 190, wysKrzaka2, null);
+        g2.drawImage(krzak, 300, wysKrzaka, null);
 
         /* Wczytywanie obrazów znaków drogowych */
         BufferedImage znak = null;
@@ -164,10 +168,12 @@ public class Plansza extends Canvas {
         } catch (IOException e) {
             s = "nie wczytano znaku";
         }
+        Font fd = new Font("Calibri", Font.BOLD, 60);
+        g2.setFont(fd);
         g2.drawImage(znak, 900, 100, null);
         if (timeCounter != 0)
-        g2.drawString(Integer.toString((timeLimit - timeCounter) / 10), 900, 600);
-        else g2.drawString(komunikat, 900,600);
+        g2.drawString(Integer.toString((timeLimit - timeCounter) / 10), 1100, 600);
+        else g2.drawString(komunikat, 1000,600);
     } //paint
 
     public void firstLevel() {
