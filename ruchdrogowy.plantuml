@@ -1,0 +1,93 @@
+@startuml
+skinparam classAttributeIconSize 0
+title RUCHDROGOWY Class Diagram
+
+  package gra {
+    class ChoiceButton {
+        ChoiceButton(String nazwa)
+    }
+  }
+  
+
+  package gra {
+    class Main {
+        Main(String nazwa)
+        + {static} void main(String[] args)
+
+    }
+  }
+  
+
+  package gra {
+    class MenuButton {
+        MenuButton(String nazwa)
+    }
+  }
+  
+
+  package gra {
+    class MyLabel {
+        MyLabel(String tekst)
+    }
+  }
+  
+
+  package gra {
+    class Okno {
+            final - int window_H = 1280
+            final - int window_W = 1024
+        Okno(String nazwa)
+    }
+  }
+  
+
+  package gra {
+    class Plansza {
+            - String s = null
+            - String komunikat = "start"
+            - int pas = 2
+            - int predkosc = 20
+            - int punkty = 0
+            - int level = 1
+            - int nrZnaku = 1
+            - int timeCounter = 0
+            - int timeLimit = 500
+            - int wysKrzaka = 0
+
+            - BufferedImage background = null
+            - BufferedImage autko = null
+            - BufferedImage krzak = null
+            - BufferedImage znak = null
+        Plansza()
+        + void update(Graphics g)
+        + void paint(Graphics g)
+        + void firstLevel()
+        + void resetLevel()
+        + void freezeLevel()
+        + void resumeLevel()
+        + int getLevel()
+        + int getPredkosc()
+        + int getPunkty()
+
+    }
+  }
+  
+
+  package gra {
+    class Znak {
+            - String[] komunikaty
+        + int losujZnak()
+        + boolean sprawdzZnak(int nrZnaku, int pas, int velocity)
+        + String getKomunikat(int nrZnaku)
+    }
+  }
+
+  ChoiceButton -d-* Main
+  MenuButton -d-* Main
+  MyLabel -r-* Main
+  Okno --* Main
+  Plansza -left-* Main
+  Plansza .up.> Znak
+
+
+@enduml

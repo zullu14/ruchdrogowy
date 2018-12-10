@@ -37,8 +37,8 @@ public class Main extends JFrame {
                 o.add(poleGry, BorderLayout.CENTER);
 
                 JPanel menubar =new JPanel();
-                JLabel punktacja = new MyLabel("PUNKTY: "+Integer.toString(poleGry.getPunkty())); //probne
-                JLabel predkosc = new MyLabel("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc())); //probne
+                JLabel punktacja = new MyLabel("PUNKTY: "+(poleGry.getPunkty()));
+                JLabel predkosc = new MyLabel("PRĘDKOŚĆ: "+(poleGry.getPredkosc()));
                 menubar.setLayout(new BoxLayout(menubar, BoxLayout.LINE_AXIS));
                 menubar.add(punktacja); //probne
                 menubar.add(Box.createRigidArea(new Dimension(100, 0)));
@@ -73,12 +73,12 @@ public class Main extends JFrame {
                     public void actionPerformed(ActionEvent actionEvent) {
                         // gdy zmieni się prędkość
                         if(v0 != poleGry.getPredkosc()) {
-                            predkosc.setText("PRĘDKOŚĆ: "+Integer.toString(poleGry.getPredkosc()));
+                            predkosc.setText("PRĘDKOŚĆ: "+(poleGry.getPredkosc()));
                             v0 = poleGry.getPredkosc();
                         }
                         // gdy zmienią się punkty
                         if(p0 != poleGry.getPunkty()) {
-                            punktacja.setText("PUNKTY: "+Integer.toString(poleGry.getPunkty()));
+                            punktacja.setText("PUNKTY: "+(poleGry.getPunkty()));
                             p0 = poleGry.getPunkty();
                         }
 
@@ -91,6 +91,7 @@ public class Main extends JFrame {
 
                         start.setVisible(false);
                         o.setVisible(true);
+                        poleGry.createBufferStrategy(2); //TESTOWO
                         poleGry.firstLevel();
                         timer0.start();
 
@@ -116,6 +117,7 @@ public class Main extends JFrame {
 
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
+                        poleGry.createBufferStrategy(2); //TESTOWO
                         poleGry.resumeLevel();
                         timer0.start();
                     }
@@ -127,8 +129,9 @@ public class Main extends JFrame {
 
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
+                        poleGry.createBufferStrategy(2); //TESTOWO
                         poleGry.resetLevel();
-                        timer0.restart();;
+                        timer0.restart();
 
                     }
                 });

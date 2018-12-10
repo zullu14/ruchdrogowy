@@ -8,10 +8,12 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.*;
 import javax.swing.Timer;
+import java.awt.image.BufferStrategy;
+
 
 public class Plansza extends Canvas {
 
-    private String s="halko";
+    private String s=null;
     private String komunikat = "start";
     private int pas = 2;
     private int predkosc = 20;
@@ -27,6 +29,9 @@ public class Plansza extends Canvas {
     private BufferedImage krzak = null;
     private BufferedImage znak = null;
 
+    private boolean repaintInProgress = false; // TESTOWO
+
+
     /* Swing Timer */
     private Timer timer = new Timer(10, new ActionListener() {
         @Override
@@ -34,7 +39,8 @@ public class Plansza extends Canvas {
             timeCounter++;
             if(timeCounter % 100 == 0) {  // co 1 sekundę
                 predkosc--;
-                repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+                //repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+                myRepaint();
             }
 
             if(predkosc<0) predkosc = 0;
@@ -49,12 +55,14 @@ public class Plansza extends Canvas {
                     // obsługa popełnienia błędu: trzy szanse / koniec gry?
                     komunikat = "Błąd!";
                 }
-                repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+                //repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+                myRepaint();
             } // warunek tC >= tL
             else if(timeCounter-timeLimit == 100) { // jedna sekunda przerwy między znakami
                 nrZnaku = new Znak().losujZnak();
                 timeCounter = 0;
-                repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
+                //repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
+                myRepaint();
             }
             if (timeCounter % 5 == 0) {   // co 50 ms
                 if (predkosc > 0) {
@@ -72,7 +80,8 @@ public class Plansza extends Canvas {
                 if (predkosc > 130) {
                     wysKrzaka+=3;
                 }
-                repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
+                //repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
+                myRepaint();
                 if (wysKrzaka >= 900) wysKrzaka = 0;
             }  // koniec akcji co 50 ms
         } // time action event
@@ -82,6 +91,7 @@ public class Plansza extends Canvas {
         super();
         Font f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
+        setIgnoreRepaint(true); //TESTOWO
 
         /*   WCZYTANIE OBRAZÓW   */
 
@@ -106,33 +116,28 @@ public class Plansza extends Canvas {
             s = "nie wczytano krzaka";
         }
 
-        timer.setInitialDelay(1000);
-
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent ke) {
-                s = ke.paramString();
                 if(ke.getKeyCode() == 37) {    // lewa strzałka
                     pas--;
                     if (pas < 0) pas = 0;
-                    //punkty++;
                 }
                 else if(ke.getKeyCode() == 39) {  // prawa strzałka
                     pas++;
                     if (pas > 2) pas = 2;
-                    //punkty++;
                 }
                 else if(ke.getKeyCode() == 38) { // strzałka w górę
                     predkosc++;
-                    if (predkosc > 160) predkosc = 160;    // zmienić tak, żeby bez dodawania gazu tracił prędkość z czasem
+                    if (predkosc > 160) predkosc = 160;
                 }
                 else if(ke.getKeyCode() == 40) { //strzałka w dół
                     predkosc--;
                     if (predkosc < 0) predkosc = 0;
                 }
-                //else punkty -= 1;
 
-                repaint(450, 600, 400, 300);
+                //repaint(450, 600, 400, 300);
+                myRepaint();
             }
         });
     } //Plansza()
@@ -142,9 +147,15 @@ public class Plansza extends Canvas {
         paint(g);
     }
 
-    public void paint(Graphics g) {
+    //public void paint(Graphics g) {
+    public void myRepaint() {   ///
+        if(repaintInProgress) return;   ///
+        repaintInProgress = true;  ///
+        BufferStrategy strategy = getBufferStrategy();  ///
+        Graphics g = strategy.getDrawGraphics();  ///
+
         Graphics2D g2 = (Graphics2D) g;
-        Dimension wym = this.getSize(); //przeniesione na zewnątrz metody
+        Dimension wym = this.getSize();
 
         g2.drawImage(background, 0, 0, null);
 
@@ -184,7 +195,13 @@ public class Plansza extends Canvas {
         g2.drawImage(znak, 900, 100, null);
         if (timeCounter < timeLimit)
         g2.drawString(Integer.toString((timeLimit - timeCounter) / 100), 1000, 600);
-        else if(timeCounter == timeLimit) g2.drawString(komunikat, 950,600);
+        else if(timeCounter >= timeLimit) g2.drawString(komunikat, 950,600);
+        if(s != null) g2.drawString(s, 950, 700);
+
+        if(g != null) g.dispose();  ///
+        strategy.show();  ///
+        Toolkit.getDefaultToolkit().sync(); ///
+        repaintInProgress = false;  ///
     } //paint
 
     public void firstLevel() {
