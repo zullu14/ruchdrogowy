@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="Metody klasy Znak, obsługa sprawdzenia znaczenia znaku drogowego cd">
-      <change afterPath="$PROJECT_DIR$/ruchdrogowy.plantuml" afterDir="false" />
+    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Plansza.java" afterDir="false" />
     </list>
@@ -18,14 +15,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+            <state relative-caret-position="-1785">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Main#0;class#Main#0" />
               </folding>
             </state>
           </provider>
@@ -85,17 +81,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
+            <state relative-caret-position="2737">
+              <caret line="222" column="20" lean-forward="true" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Plansza#0;class#Plansza#0" />
                 <element signature="e#3449#4463#0" expanded="true" />
                 <element signature="e#4462#4463#0" expanded="true" />
                 <element signature="method#firstLevel#0;class#Plansza#0" />
-                <element signature="method#resetLevel#0;class#Plansza#0" />
               </folding>
             </state>
           </provider>
@@ -200,7 +196,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544479689415" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544480796114" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -316,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544309443791</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Diagram klas UML, sposób BufferStrategy na rysowanie obrazu w Canvas">
+      <created>1544479900135</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544479900135</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -341,15 +344,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49966466" visible="true" weight="0.042432815" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.398017" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966466" weight="0.042432815" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39745402" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50033534" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3243626" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32390383" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.32997987" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -403,7 +406,8 @@
     <MESSAGE value="Metody klasy Znak" />
     <MESSAGE value="Metody klasy Znak, obsługa sprawdzenia znaczenia znaku drogowego" />
     <MESSAGE value="Metody klasy Znak, obsługa sprawdzenia znaczenia znaku drogowego cd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Metody klasy Znak, obsługa sprawdzenia znaczenia znaku drogowego cd" />
+    <MESSAGE value="Diagram klas UML, sposób BufferStrategy na rysowanie obrazu w Canvas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diagram klas UML, sposób BufferStrategy na rysowanie obrazu w Canvas" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
@@ -497,27 +501,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+        <state relative-caret-position="2737">
+          <caret line="222" column="20" lean-forward="true" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Main#0;class#Main#0" />
+            <element signature="method#Plansza#0;class#Plansza#0" />
+            <element signature="e#3449#4463#0" expanded="true" />
+            <element signature="e#4462#4463#0" expanded="true" />
+            <element signature="method#firstLevel#0;class#Plansza#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
+    <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
+        <state relative-caret-position="-1785">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3449#4463#0" expanded="true" />
-            <element signature="e#4462#4463#0" expanded="true" />
-            <element signature="method#firstLevel#0;class#Plansza#0" />
-            <element signature="method#resetLevel#0;class#Plansza#0" />
           </folding>
         </state>
       </provider>

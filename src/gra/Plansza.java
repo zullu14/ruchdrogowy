@@ -218,6 +218,9 @@ public class Plansza extends Canvas {
         this.pas = 2;
         this.predkosc = 20;
         this.timer.restart();
+        nrZnaku = new Znak().losujZnak();
+        timeCounter = 0;
+        myRepaint();
     }
 
     public void freezeLevel() {
