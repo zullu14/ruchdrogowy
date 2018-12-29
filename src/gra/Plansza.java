@@ -36,54 +36,56 @@ public class Plansza extends Canvas {
     private Timer timer = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            timeCounter++;
-            if(timeCounter % 100 == 0) {  // co 1 sekundę
-                predkosc--;
-                //repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
+            if(predkosc != 0 || nrZnaku == 5) { //autko jedzie albo jest znak STOP
+                s = null;
+                timeCounter++;
+                if (timeCounter % 100 == 0) {  // co 1 sekundę
+                    predkosc--;
+                    myRepaint();
+                }
+
+                if (predkosc < 0) predkosc = 0;
+
+                if (timeCounter == timeLimit) {
+                    // obsługa sprawdzenia poprawnej reakcji na znak
+                    if (new Znak().sprawdzZnak(nrZnaku, pas, predkosc)) {
+                        punkty++;
+                        komunikat = "Dobrze!";
+                    } else {
+                        // obsługa popełnienia błędu: trzy szanse / koniec gry?
+                        komunikat = "Błąd!";
+                    }
+                    myRepaint();
+                } // warunek tC >= tL
+                else if (timeCounter - timeLimit == 100) { // jedna sekunda przerwy między znakami
+                    nrZnaku = new Znak().losujZnak();
+                    timeCounter = 0;
+                    myRepaint();
+                }
+                if (timeCounter % 5 == 0) {   // co 50 ms
+                    if (predkosc > 0) {
+                        wysKrzaka += 3;
+                    }
+                    if (predkosc > 30) {
+                        wysKrzaka += 3;
+                    }
+                    if (predkosc > 60) {
+                        wysKrzaka += 3;
+                    }
+                    if (predkosc > 100) {
+                        wysKrzaka += 3;
+                    }
+                    if (predkosc > 130) {
+                        wysKrzaka += 3;
+                    }
+                    myRepaint();
+                    if (wysKrzaka >= 900) wysKrzaka = 0;
+                }// koniec akcji co 50 ms
+            } // if predkosc != 0
+            else {
+                s = "Dodaj gazu!";
                 myRepaint();
             }
-
-            if(predkosc<0) predkosc = 0;
-
-            if (timeCounter == timeLimit) {
-                // obsługa sprawdzenia poprawnej reakcji na znak
-                if(new Znak().sprawdzZnak(nrZnaku, pas, predkosc)) {
-                    punkty++;
-                    komunikat = "Dobrze!";
-                }
-                else {
-                    // obsługa popełnienia błędu: trzy szanse / koniec gry?
-                    komunikat = "Błąd!";
-                }
-                //repaint(1000, 600, 250, 300); //narysuj tylko pole pod znakiem
-                myRepaint();
-            } // warunek tC >= tL
-            else if(timeCounter-timeLimit == 100) { // jedna sekunda przerwy między znakami
-                nrZnaku = new Znak().losujZnak();
-                timeCounter = 0;
-                //repaint(900, 100, 350, 800); //narysuj tylko nowy znak i pole pod nim
-                myRepaint();
-            }
-            if (timeCounter % 5 == 0) {   // co 50 ms
-                if (predkosc > 0) {
-                    wysKrzaka+=3;
-                }
-                if (predkosc > 30) {
-                    wysKrzaka+=3;
-                }
-                if (predkosc > 60) {
-                    wysKrzaka+=3;
-                }
-                if (predkosc > 100) {
-                    wysKrzaka+=3;
-                }
-                if (predkosc > 130) {
-                    wysKrzaka+=3;
-                }
-                //repaint(0, 0, 450, 900); //narysuj tylko obszar krzaków
-                myRepaint();
-                if (wysKrzaka >= 900) wysKrzaka = 0;
-            }  // koniec akcji co 50 ms
         } // time action event
     });
 
@@ -196,7 +198,7 @@ public class Plansza extends Canvas {
         if (timeCounter < timeLimit)
         g2.drawString(Integer.toString((timeLimit - timeCounter) / 100), 1000, 600);
         else if(timeCounter >= timeLimit) g2.drawString(komunikat, 950,600);
-        if(s != null) g2.drawString(s, 950, 700);
+        if(s != null) g2.drawString(s, 950, 700); //komunikat specjalny
 
         if(g != null) g.dispose();  ///
         strategy.show();  ///

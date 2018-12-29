@@ -58,9 +58,10 @@ title RUCHDROGOWY Class Diagram
             - BufferedImage autko = null
             - BufferedImage krzak = null
             - BufferedImage znak = null
+            - boolean repaintInProgress = false
         Plansza()
         + void update(Graphics g)
-        + void paint(Graphics g)
+        + void myRepaint()
         + void firstLevel()
         + void resetLevel()
         + void freezeLevel()
