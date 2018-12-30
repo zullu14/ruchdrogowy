@@ -4,7 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.border.Border;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main extends JFrame {
 
@@ -14,7 +16,6 @@ public class Main extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
 
     public static void main(String[] args) {
 
@@ -67,6 +68,17 @@ public class Main extends JFrame {
                 menuPanel.add(finishB);
                 oknoMenu.add(menuPanel, BorderLayout.CENTER);
 
+                /* Okno z rankingiem */
+                Ranking ranking = new Ranking("Ranking", poleGry.getPunkty());
+                JButton rankMenuButton = new MenuButton("MENU");
+                JPanel menuButtonBar = new JPanel();
+                menuButtonBar.setLayout(new BoxLayout(menuButtonBar, BoxLayout.LINE_AXIS));
+                menuButtonBar.add(Box.createHorizontalGlue());
+                menuButtonBar.add(rankMenuButton);
+                ranking.add(menuButtonBar, BorderLayout.PAGE_END);
+                ranking.setVisible(false);
+
+
                 Timer timer0 = new Timer(100, new ActionListener() {
                     int lev0 = 1;
                     int v0 = 20;
@@ -92,78 +104,69 @@ public class Main extends JFrame {
                     }
                 });
 
-                b_start.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                //actionEvent
+                b_start.addActionListener(actionEvent -> {
 
-                        start.setVisible(false);
-                        o.setVisible(true);
-                        poleGry.createBufferStrategy(2);
-                        poleGry.firstLevel();
-                        timer0.start();
+                    start.setVisible(false);
+                    o.setVisible(true);
+                    poleGry.createBufferStrategy(2);
+                    poleGry.firstLevel();
+                    timer0.start();
 
 
-                    } //actionEvent
                 }); //actionListener
 
-                mButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                mButton.addActionListener(actionEvent -> {
 
-                        poleGry.freezeLevel();
-                        timer0.stop();
-                        o.setVisible(false);
-                        oknoMenu.setVisible(true);
+                    poleGry.freezeLevel();
+                    timer0.stop();
+                    o.setVisible(false);
+                    oknoMenu.setVisible(true);
 
-                    }
                 }); //actionListener
 
-                resumeB.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                resumeB.addActionListener(actionEvent -> {
 
-                        oknoMenu.setVisible(false);
-                        o.setVisible(true);
-                        poleGry.createBufferStrategy(2);
-                        poleGry.resumeLevel();
-                        timer0.start();
-                    }
+                    oknoMenu.setVisible(false);
+                    o.setVisible(true);
+                    poleGry.createBufferStrategy(2);
+                    poleGry.resumeLevel();
+                    timer0.start();
                 });
 
-                newGameB.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                newGameB.addActionListener(actionEvent -> {
 
-                        oknoMenu.setVisible(false);
-                        o.setVisible(true);
-                        poleGry.createBufferStrategy(2);
-                        poleGry.resetLevel();
-                        timer0.restart();
+                    oknoMenu.setVisible(false);
+                    o.setVisible(true);
+                    poleGry.createBufferStrategy(2);
+                    poleGry.resetLevel();
+                    timer0.restart();
 
-                    }
                 });
 
-                showStatsB.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                showStatsB.addActionListener(actionEvent -> {
 
-                        // dodać obsługę wyświetlania wyników
-                    }
+                    oknoMenu.setVisible(false);
+                    ranking.setPunkty(poleGry.getPunkty());
+                    ranking.setVisible(true);
                 });
 
-                finishB.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent actionEvent) {
+                rankMenuButton.addActionListener(actionEvent -> {
 
-                        oknoMenu.setVisible(false);
-                        System.exit(0);
-                    }
+                    ranking.setVisible(false);
+                    oknoMenu.setVisible(true);
+
+                }); //actionListener
+
+                finishB.addActionListener(actionEvent -> {
+
+                    oknoMenu.setVisible(false);
+                    System.exit(0);
                 });
 
             } //run
         }); //invokeLater
 
     } //main
-
 } //class Main
 
