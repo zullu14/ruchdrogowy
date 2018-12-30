@@ -19,12 +19,14 @@ public class Plansza extends Canvas {
     private int predkosc = 20;
     private int punkty = 0;
     private int level = 1;
-    private int nrZnaku = 1;
+    private int nrZnaku = new Znak().losujZnak();
     private int timeCounter = 0;
     private int timeLimit = 500;
     private int wysKrzaka = 0;
+    private boolean isNewLevel = false;
 
     private BufferedImage background = null;
+    private BufferedImage background2 = null;
     private BufferedImage autko = null;
     private BufferedImage krzak = null;
     private BufferedImage znak = null;
@@ -36,24 +38,55 @@ public class Plansza extends Canvas {
     private Timer timer = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            if(predkosc != 0 || nrZnaku == 5) { //autko jedzie albo jest znak STOP
+            if(isNewLevel) {
+                timeCounter++;
+                myRepaint();
+            }
+            else if(predkosc != 0 || nrZnaku == 5) { //autko jedzie albo jest znak STOP
                 s = null;
                 timeCounter++;
                 if (timeCounter % 100 == 0) {  // co 1 sekundę
                     predkosc--;
-                    myRepaint();
-                }
+                    if (predkosc < 0) predkosc = 0;
+                    punkty += (predkosc / 10); // bonusik punktowy
 
-                if (predkosc < 0) predkosc = 0;
+                    switch(level) {   // obsługa przejścia na wyższe poziomy /// DO POPRAWY
+                        case 1:
+                            if(punkty >= 100) {
+                                secondLevel();
+                                komunikat = "Brawo!";
+                            }
+                            break;
+                        case 2:
+                            if(punkty >= 100) {
+                                thirdLevel();
+                                komunikat = "Brawo!";
+                            }
+                            break;
+                        case 3:
+                            if(punkty >= 100) {
+                                isNewLevel = true;
+                                level = 4;
+                                myRepaint();
+                            }
+                            break;
+                        default:
+                            break;
+                    } //switch level
+
+                    myRepaint();
+                } // co 1 sekundę
 
                 if (timeCounter == timeLimit) {
                     // obsługa sprawdzenia poprawnej reakcji na znak
                     if (new Znak().sprawdzZnak(nrZnaku, pas, predkosc)) {
-                        punkty++;
+                        punkty += 100;
                         komunikat = "Dobrze!";
                     } else {
                         // obsługa popełnienia błędu: trzy szanse / koniec gry?
                         komunikat = "Błąd!";
+                        punkty -= 100;
+                        if(punkty < 0) punkty = 0;
                     }
                     myRepaint();
                 } // warunek tC >= tL
@@ -93,13 +126,20 @@ public class Plansza extends Canvas {
         super();
         Font f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
-        setIgnoreRepaint(true); //TESTOWO
+        setIgnoreRepaint(true);
 
         /*   WCZYTANIE OBRAZÓW   */
 
         /* Wczytanie obrazu tła */
         try {
             background = ImageIO.read(new File("background.jpg"));
+        } catch (IOException e) {
+            s = "nie wczytano tła";
+        }
+
+        /* Wczytanie obrazu tła 2 */
+        try {
+            background2 = ImageIO.read(new File("background2.jpg"));
         } catch (IOException e) {
             s = "nie wczytano tła";
         }
@@ -121,6 +161,7 @@ public class Plansza extends Canvas {
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent ke) {
+                //isNewLevel = false;
                 if(ke.getKeyCode() == 37) {    // lewa strzałka
                     pas--;
                     if (pas < 0) pas = 0;
@@ -137,19 +178,12 @@ public class Plansza extends Canvas {
                     predkosc--;
                     if (predkosc < 0) predkosc = 0;
                 }
-
-                //repaint(450, 600, 400, 300);
                 myRepaint();
             }
         });
     } //Plansza()
 
 
-    public void update(Graphics g) {
-        paint(g);
-    }
-
-    //public void paint(Graphics g) {
     public void myRepaint() {   ///
         if(repaintInProgress) return;   ///
         repaintInProgress = true;  ///
@@ -159,59 +193,102 @@ public class Plansza extends Canvas {
         Graphics2D g2 = (Graphics2D) g;
         Dimension wym = this.getSize();
 
-        g2.drawImage(background, 0, 0, null);
-
         int autko_w = autko.getWidth(null);
         int autko_h = autko.getHeight(null);
 
-        if (pas == 0) { //pas lewy
-            g2.drawImage(autko,wym.width/2 -autko_w -80, wym.height -autko_h -predkosc+20, null);
-        }
-        else if (pas == 1) { //pas środkowy
-            g2.drawImage(autko, wym.width / 2 + -60, wym.height - autko_h -predkosc+20, null);
-        }
-        else if (pas == 2) { //pas prawy
-            g2.drawImage(autko, wym.width / 2 + 60, wym.height - autko_h -predkosc+20, null);
-        }
-
-        /* Rysowanie krzaka */
-
-        int wysKrzaka2 = wysKrzaka+200;
-        if(wysKrzaka>=700) wysKrzaka2 = wysKrzaka-700;
-        int wysKrzaka3 = wysKrzaka+600;
-        if(wysKrzaka>=300) wysKrzaka3 = wysKrzaka-300;
-        g2.drawImage(krzak, 80, wysKrzaka, null);
-        g2.drawImage(krzak, 190, wysKrzaka2, null);
-        g2.drawImage(krzak, 300, wysKrzaka, null);
-        g2.drawImage(krzak, 100, wysKrzaka3, null);
-
-        /* Wczytywanie obrazów znaków drogowych */
-        try {
-            znak = ImageIO.read(new File("znak"+nrZnaku+".png"));
-        } catch (IOException e) {
-            s = "nie wczytano znaku";
-        }
-
         Font fd = new Font("Calibri", Font.BOLD, 60);
         g2.setFont(fd);
-        g2.drawImage(znak, 900, 100, null);
-        if (timeCounter < timeLimit)
-        g2.drawString(Integer.toString((timeLimit - timeCounter) / 100), 1000, 600);
-        else if(timeCounter >= timeLimit) g2.drawString(komunikat, 950,600);
-        if(s != null) g2.drawString(s, 950, 700); //komunikat specjalny
+
+        if(isNewLevel) {
+            g2.drawImage(background2, 0, 0, null);
+            if(level < 4) {
+                g2.drawString("NOWY POZIOM: "+level, 375, 450); //komunikat specjalny
+                if(timeCounter >= 200) {
+                    isNewLevel = false;
+                    timeCounter = 0;
+                }
+            }
+            else {
+                g2.drawString("BRAWO, ZAKOŃCZYŁEŚ GRĘ", 250, 400); //komunikat specjalny
+                g2.drawString("Z WYNIKIEM: "+punkty, 375, 500); //komunikat specjalny
+            }
+        } // zmiana poziomu
+        else {
+            g2.drawImage(background, 0, 0, null);
+            if (pas == 0) { //pas lewy
+                g2.drawImage(autko,wym.width/2 -autko_w -80, wym.height -autko_h -predkosc+20, null);
+            }
+            else if (pas == 1) { //pas środkowy
+                g2.drawImage(autko, wym.width / 2 + -60, wym.height - autko_h -predkosc+20, null);
+            }
+            else if (pas == 2) { //pas prawy
+                g2.drawImage(autko, wym.width / 2 + 60, wym.height - autko_h -predkosc+20, null);
+            }
+
+            /* Rysowanie krzaka */
+
+            int wysKrzaka2 = wysKrzaka+200;
+            if(wysKrzaka>=700) wysKrzaka2 = wysKrzaka-700;
+            int wysKrzaka3 = wysKrzaka+600;
+            if(wysKrzaka>=300) wysKrzaka3 = wysKrzaka-300;
+            g2.drawImage(krzak, 80, wysKrzaka, null);
+            g2.drawImage(krzak, 190, wysKrzaka2, null);
+            g2.drawImage(krzak, 300, wysKrzaka, null);
+            g2.drawImage(krzak, 100, wysKrzaka3, null);
+
+            /* Wczytywanie obrazów znaków drogowych */
+            try {
+                znak = ImageIO.read(new File("znak"+nrZnaku+".png"));
+            } catch (IOException e) {
+                s = "nie wczytano znaku";
+            }
+
+            g2.drawImage(znak, 900, 100, null);
+            if (timeCounter < timeLimit)
+                g2.drawString(Integer.toString((timeLimit - timeCounter) / 100), 1000, 600);
+            else if(timeCounter >= timeLimit) g2.drawString(komunikat, 950,600);
+            if(s != null) g2.drawString(s, 950, 700); //komunikat specjalny
+        } // gdy gra działą
 
         if(g != null) g.dispose();  ///
         strategy.show();  ///
         Toolkit.getDefaultToolkit().sync(); ///
         repaintInProgress = false;  ///
-    } //paint
+    } //myRepaint
 
     public void firstLevel() {
         this.level = 1;
         this.punkty = 0;
         this.pas = 2;
         this.predkosc = 20;
+        this.timeLimit = 500; // 5 sekund na reakcję
         this.timer.start();
+    }
+
+    public void secondLevel() {
+        this.level = 2;
+        this.punkty = 0;
+        this.pas = 2;
+        this.predkosc = 20;
+        this.timeLimit = 400; // 4 sekundy na reakcję
+        isNewLevel = true;
+        timeCounter = 0;
+        myRepaint();
+        this.timer.restart();
+        nrZnaku = new Znak().losujZnak();
+    }
+
+    public void thirdLevel() {
+        this.level = 3;
+        this.punkty = 0;
+        this.pas = 2;
+        this.predkosc = 20;
+        this.timeLimit = 300; // 3 sekundy na reakcję
+        isNewLevel = true;
+        timeCounter = 0;
+        myRepaint();
+        this.timer.restart();
+        nrZnaku = new Znak().losujZnak();
     }
 
     public void resetLevel() {
@@ -219,10 +296,12 @@ public class Plansza extends Canvas {
         this.punkty = 0;
         this.pas = 2;
         this.predkosc = 20;
-        this.timer.restart();
-        nrZnaku = new Znak().losujZnak();
+        this.timeLimit = 500; // 5 sekund na reakcję
+        isNewLevel = true;
         timeCounter = 0;
         myRepaint();
+        this.timer.restart();
+        nrZnaku = new Znak().losujZnak();
     }
 
     public void freezeLevel() {

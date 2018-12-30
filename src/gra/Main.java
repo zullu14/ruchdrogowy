@@ -35,11 +35,14 @@ public class Main extends JFrame {
                 o.add(poleGry, BorderLayout.CENTER);
 
                 JPanel menubar =new JPanel();
+                JLabel poziom = new MyLabel("POZIOM: "+(poleGry.getLevel()));
                 JLabel punktacja = new MyLabel("PUNKTY: "+(poleGry.getPunkty()));
                 JLabel predkosc = new MyLabel("PRĘDKOŚĆ: "+(poleGry.getPredkosc()));
                 menubar.setLayout(new BoxLayout(menubar, BoxLayout.LINE_AXIS));
+                menubar.add(poziom); //probne
+                menubar.add(Box.createRigidArea(new Dimension(80, 0)));
                 menubar.add(punktacja); //probne
-                menubar.add(Box.createRigidArea(new Dimension(100, 0)));
+                menubar.add(Box.createRigidArea(new Dimension(80, 0)));
                 menubar.add(predkosc); //probne
                 menubar.add(Box.createHorizontalGlue());
                 JButton mButton = new MenuButton("MENU");
@@ -65,10 +68,16 @@ public class Main extends JFrame {
                 oknoMenu.add(menuPanel, BorderLayout.CENTER);
 
                 Timer timer0 = new Timer(100, new ActionListener() {
+                    int lev0 = 1;
                     int v0 = 20;
                     int p0 = 0;
                     @Override
                     public void actionPerformed(ActionEvent actionEvent) {
+                        // gdy zmieni się poziom
+                        if(lev0 != poleGry.getLevel()) {
+                            poziom.setText("POZIOM: "+(poleGry.getLevel()));
+                            lev0 = poleGry.getLevel();
+                        }
                         // gdy zmieni się prędkość
                         if(v0 != poleGry.getPredkosc()) {
                             predkosc.setText("PRĘDKOŚĆ: "+(poleGry.getPredkosc()));
@@ -89,7 +98,7 @@ public class Main extends JFrame {
 
                         start.setVisible(false);
                         o.setVisible(true);
-                        poleGry.createBufferStrategy(2); //TESTOWO
+                        poleGry.createBufferStrategy(2);
                         poleGry.firstLevel();
                         timer0.start();
 
@@ -115,7 +124,7 @@ public class Main extends JFrame {
 
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
-                        poleGry.createBufferStrategy(2); //TESTOWO
+                        poleGry.createBufferStrategy(2);
                         poleGry.resumeLevel();
                         timer0.start();
                     }
@@ -127,7 +136,7 @@ public class Main extends JFrame {
 
                         oknoMenu.setVisible(false);
                         o.setVisible(true);
-                        poleGry.createBufferStrategy(2); //TESTOWO
+                        poleGry.createBufferStrategy(2);
                         poleGry.resetLevel();
                         timer0.restart();
 
