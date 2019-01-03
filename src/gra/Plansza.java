@@ -1,7 +1,6 @@
 package gra;
 
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,6 +10,10 @@ import javax.swing.Timer;
 import java.awt.image.BufferStrategy;
 
 
+/**
+ * Klasa, która steruje rozgrywką: rysuje pole gry, obsługuje akcje gracza, losuje nowe zdarzenia,
+ * podlicza punkty, wywołuje kolejne poziomy.
+ */
 public class Plansza extends Canvas {
 
     private String s=null;
@@ -34,16 +37,20 @@ public class Plansza extends Canvas {
     private BufferedImage krzak = null;
     private BufferedImage znak = null;
 
-    private boolean repaintInProgress = false; // TESTOWO
+    private boolean repaintInProgress = false;
 
-
-    // time action event
     /* Swing Timer */
+    /**
+     * Timer wywołujący zdarzenie co 10 ms. Na podstawie aktualnej sytuacji gry ustawia
+     * odpowiednie flagi, zmienne i losuje nowe zdarzenia.
+     */
     private Timer timer = new Timer(10, actionEvent -> {
+        /* Jezeli komunikat o nowym poziomie jest aktywny, nic nie rób */
         if(isNewLevel) {
             timeCounter++;
             myRepaint();
         }
+        /* Jezeli komunikat o popełnieniu błędu jest aktywny, nic nie rób */
         else if(isWrong) {
             timeCounter++;
             myRepaint();
@@ -54,9 +61,10 @@ public class Plansza extends Canvas {
             if (timeCounter % 100 == 0) {  // co 1 sekundę
                 predkosc--;
                 if (predkosc < 0) predkosc = 0;
-                punkty += (predkosc / 10); // bonusik punktowy
+                punkty += (predkosc / 10); // bonus punktowy
 
-                switch(level) {   // obsługa przejścia na wyższe poziomy /// DO POPRAWY
+                /* obsługa przejścia na wyższe poziomy */
+                switch(level) {
                     case 1:
                         if(eventCounter >= 6) {
                             secondLevel();
@@ -130,11 +138,15 @@ public class Plansza extends Canvas {
         }
     });
 
+    /**
+     * Konstruktor tworzy nowe pole graficzne gry, wczytuje obrazy,
+     * obsługuje zdarzenia naciśnięcia klawiszy strzałek.
+     */
     Plansza() {
         super();
         Font f = new Font("Calibri", Font.BOLD, 40);
         setFont(f);
-        setIgnoreRepaint(true);
+        setIgnoreRepaint(true); // zamiast metody repaint() będzie wykorzystana własna metoda myRepaint()
 
         /*   WCZYTANIE OBRAZÓW   */
 
@@ -192,12 +204,15 @@ public class Plansza extends Canvas {
     } //Plansza()
 
 
-    private void myRepaint() {   ///
-        if(repaintInProgress) return;   ///
-        repaintInProgress = true;  ///
-        BufferStrategy strategy = getBufferStrategy();  ///
-        Graphics g = strategy.getDrawGraphics();  ///
-
+    /**
+     * Metoda rysująca pole graficzne gry.
+     * Wykorzystano BufferStrategy w celu płynnego zmieniania obrazu.
+     */
+    private void myRepaint() {
+        if(repaintInProgress) return;
+        repaintInProgress = true;
+        BufferStrategy strategy = getBufferStrategy();
+        Graphics g = strategy.getDrawGraphics();
         Graphics2D g2 = (Graphics2D) g;
         Dimension wym = this.getSize();
 
@@ -274,6 +289,7 @@ public class Plansza extends Canvas {
         repaintInProgress = false;  ///
     } //myRepaint
 
+    /** Ustawienie parametrów dla pierwszego poziomu gry. */
     public void firstLevel() {
         this.level = 1;
         this.punkty = 0;
@@ -283,6 +299,7 @@ public class Plansza extends Canvas {
         this.timer.start();
     }
 
+    /** Ustawienie parametrów dla drugiego poziomu gry. */
     public void secondLevel() {
         this.level = 2;
         this.eventCounter = 0;
@@ -296,6 +313,7 @@ public class Plansza extends Canvas {
         nrZnaku = new Znak().losujZnak();
     }
 
+    /** Ustawienie parametrów dla trzeciego poziomu gry. */
     public void thirdLevel() {
         this.level = 3;
         this.eventCounter = 0;
@@ -309,6 +327,7 @@ public class Plansza extends Canvas {
         nrZnaku = new Znak().losujZnak();
     }
 
+    /** Ustawienie parametrów po zresetowanniu gry z pozycji menu. */
     public void resetLevel() {
         this.level = 1;
         this.punkty = 0;
@@ -324,22 +343,27 @@ public class Plansza extends Canvas {
         nrZnaku = new Znak().losujZnak();
     }
 
+    /** Zatrzymanie Timera po otwarciu okna menu. */
     public void freezeLevel() {
         this.timer.stop();
     }
 
+    /** Wznowienie Timera po zamknięciu okna menu. */
     public void resumeLevel() {
         this.timer.start();
     }
 
+    /** @return przekazanie wartości pola level. */
     public int getLevel() {
         return level;
     }
 
+    /** @return przekazanie wartości pola prędkość. */
     public int getPredkosc() {
         return predkosc;
     }
 
+    /** @return przekazanie wartości pola punkty. */
     public int getPunkty() {
         return punkty;
     }

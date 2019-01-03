@@ -2,27 +2,24 @@ package gra;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
 
+/**
+ * Klasa określająca wygląd okna rozgrywki.
+ */
 public class Okno extends JFrame {
 
     final private int window_H = 1280;
-    final private int window_W = 1024; // odniesienie dla wszystkich wymiarów
+    final private int window_W = 1024;
 
-
+    /**
+     * Konstruktor tworzący okno dla pola gry.
+     * @param nazwa tytuł okna.
+     */
     Okno(String nazwa){
         super(nazwa);
         setResizable(false);
         setLayout(new BorderLayout());
-
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent we) {
-                System.out.println("GAME OVER");
-            }
-        });
         setSize(window_H,window_W);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } //Okno()
-
 } //class Okno

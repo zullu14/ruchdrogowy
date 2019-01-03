@@ -2,12 +2,14 @@ package gra;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Klasa obsługująca aktualizowanie i wyświetlanie rankingu z pliku
+ * @author Michał Baranowski
+ */
 public class Ranking extends JFrame {
 
     private File rankFile = new File("ranked.txt");
@@ -15,6 +17,11 @@ public class Ranking extends JFrame {
     private Font font = new Font("Calibri", Font.BOLD, 40);
     private int punkty;
 
+    /**
+     * Konstruktor tworzący okno w którym jest wyświetlany ranking
+     * @param nazwa tytuł okna
+     * @param pkt aktualny stan punktów gracza
+     */
     Ranking(String nazwa, int pkt) {
         super(nazwa);
         this.punkty = pkt;
@@ -53,6 +60,10 @@ public class Ranking extends JFrame {
 
     } //Ranking
 
+    /**
+     * Metoda zapisująca aktualny wynik do tabeli rankingowej
+     * @param stats tekst do zapisania w pliku: nazwa gracza i punkty
+     */
     private void saveScore(String stats) {
         try{
             if(rankFile.exists()){
@@ -66,6 +77,10 @@ public class Ranking extends JFrame {
         }
     }
 
+    /**
+     * Metoda czytająca zawartość pliku tekstowego z rankingiem
+     * @return zwraca listę zapisanych wyników w formie ArrayList
+     */
     private ArrayList<String> readScore() {
         ArrayList<String> result = new ArrayList<>();
 
@@ -80,6 +95,9 @@ public class Ranking extends JFrame {
         return null;
     }
 
+    /**
+     * Metoda ustawiająca aktualną wartość punktową gracza
+     */
     void setPunkty(int punkty) {
         this.punkty = punkty;
     }

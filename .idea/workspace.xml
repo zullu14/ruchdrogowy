@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="Dodano funkcję zapisu i odczytu rankingu z pliku tekstowego.">
-      <change afterPath="$PROJECT_DIR$/ranked.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gra/Ranking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/znak12.png" afterDir="false" />
+    <list default="true" id="537435d8-984f-4780-bccb-601b3fc92b38" name="Default Changelist" comment="Dodanie komentarzy javadoc oraz oczyszczenie kodu. Dodanie 2 znakow">
+      <change afterPath="$PROJECT_DIR$/znak13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/znak14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/ChoiceButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/ChoiceButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1$6.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/MenuButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/MenuButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Okno$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Okno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Okno.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ruchdrogowy/gra/Plansza.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ranked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gra/ChoiceButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/ChoiceButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gra/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gra/MyLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/MyLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gra/Okno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Okno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Plansza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gra/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Ranking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gra/Znak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gra/Znak.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,11 +44,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="160" column="42" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+            <state relative-caret-position="143">
+              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#3102:4171" />
               </folding>
             </state>
           </provider>
@@ -46,10 +56,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/Ranking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+            <state relative-caret-position="663">
+              <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Ranking#0;class#Ranking#0" />
+                <element signature="method#saveScore#0;class#Ranking#0" />
+                <element signature="method#readScore#0;class#Ranking#0" />
               </folding>
             </state>
           </provider>
@@ -58,24 +71,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="298" column="10" lean-forward="true" selection-start-line="298" selection-start-column="10" selection-end-line="298" selection-end-column="10" />
+            <state relative-caret-position="1411">
+              <caret line="361" column="4" selection-start-line="361" selection-start-column="4" selection-end-line="361" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1109#4231#0" />
                 <element signature="method#Plansza#0;class#Plansza#0" />
-                <element signature="e#5494#6323#0" expanded="true" />
-                <element signature="e#6322#6323#0" expanded="true" />
+                <element signature="method#myRepaint#0;class#Plansza#0" />
+                <element signature="method#firstLevel#0;class#Plansza#0" />
+                <element signature="method#secondLevel#0;class#Plansza#0" />
+                <element signature="method#thirdLevel#0;class#Plansza#0" />
                 <element signature="method#resetLevel#0;class#Plansza#0" />
-                <element signature="e#9574#9608#1" />
-                <element signature="e#10781#10782#0" expanded="true" />
-                <element signature="e#9640#9675#1" />
-                <element signature="e#10848#10849#0" expanded="true" />
-                <element signature="e#9703#9732#1" />
-                <element signature="e#10905#10906#0" expanded="true" />
-                <element signature="e#9763#9795#1" />
-                <element signature="e#10968#10969#0" expanded="true" />
-                <element signature="e#9824#9854#1" />
-                <element signature="e#11027#11028#0" expanded="true" />
+                <element signature="e#10915#10916#0" expanded="true" />
+                <element signature="e#10946#10947#0" expanded="true" />
+                <element signature="e#10976#10977#0" expanded="true" />
+                <element signature="e#11005#11006#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,10 +94,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/MyLabel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="49" />
+            <state relative-caret-position="102">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#MyLabel#0;class#MyLabel#0" />
               </folding>
             </state>
           </provider>
@@ -96,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/ChoiceButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="102">
+              <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ChoiceButton#0;class#ChoiceButton#0" />
@@ -109,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/MenuButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state relative-caret-position="238">
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MenuButton#0;class#MenuButton#0" />
@@ -122,10 +133,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gra/Okno.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="238">
+              <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Okno#0;class#Okno#0" />
               </folding>
             </state>
           </provider>
@@ -135,10 +147,10 @@
         <entry file="file://$PROJECT_DIR$/src/gra/Znak.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="143">
-              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
               <folding>
-                <element signature="e#2180#2181#0" expanded="true" />
-                <element signature="e#2224#2225#0" expanded="true" />
+                <element signature="e#2689#2690#0" expanded="true" />
+                <element signature="e#2733#2734#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,16 +184,16 @@
       <list>
         <option value="$PROJECT_DIR$/src/gra/ruch.java" />
         <option value="$PROJECT_DIR$/src/gra/PanelGry.java" />
-        <option value="$PROJECT_DIR$/src/gra/Okno.java" />
-        <option value="$PROJECT_DIR$/src/gra/MenuButton.java" />
-        <option value="$PROJECT_DIR$/src/gra/ChoiceButton.java" />
         <option value="$PROJECT_DIR$/src/gra/ruchdrogowy.puml" />
         <option value="$PROJECT_DIR$/ruchdrogowy.plantuml" />
-        <option value="$PROJECT_DIR$/src/gra/Znak.java" />
-        <option value="$PROJECT_DIR$/src/gra/MyLabel.java" />
-        <option value="$PROJECT_DIR$/src/gra/Ranking.java" />
         <option value="$PROJECT_DIR$/src/gra/Main.java" />
+        <option value="$PROJECT_DIR$/src/gra/Ranking.java" />
         <option value="$PROJECT_DIR$/src/gra/Plansza.java" />
+        <option value="$PROJECT_DIR$/src/gra/ChoiceButton.java" />
+        <option value="$PROJECT_DIR$/src/gra/MyLabel.java" />
+        <option value="$PROJECT_DIR$/src/gra/MenuButton.java" />
+        <option value="$PROJECT_DIR$/src/gra/Okno.java" />
+        <option value="$PROJECT_DIR$/src/gra/Znak.java" />
       </list>
     </option>
   </component>
@@ -206,7 +218,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,15 +240,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546211368646" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546548123609" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -376,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546131452282</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Dodano funkcję zapisu i odczytu rankingu z pliku tekstowego.">
+      <created>1546211381603</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1546211381603</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -392,7 +411,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17169684" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17840375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -401,15 +420,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966466" weight="0.042432815" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966466" weight="0.18953323" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39745402" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3281471" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50033534" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32390383" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32390383" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.32997987" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -468,7 +487,9 @@
     <MESSAGE value="Poszerzenie bazy znaków drogowych do 11 znaków; dodanie warunku 0 kph" />
     <MESSAGE value="Dodane poziomy trudności i przechodzenie między nimi" />
     <MESSAGE value="Dodano funkcję zapisu i odczytu rankingu z pliku tekstowego." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano funkcję zapisu i odczytu rankingu z pliku tekstowego." />
+    <MESSAGE value="aktualizacja" />
+    <MESSAGE value="Dodanie komentarzy javadoc oraz oczyszczenie kodu. Dodanie 2 znakow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie komentarzy javadoc oraz oczyszczenie kodu. Dodanie 2 znakow" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
@@ -497,10 +518,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gra/Ranking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ranking#0;class#Ranking#0" />
+            <element signature="method#saveScore#0;class#Ranking#0" />
+            <element signature="method#readScore#0;class#Ranking#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/ChoiceButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="102">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ChoiceButton#0;class#ChoiceButton#0" />
@@ -508,10 +542,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gra/MyLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MyLabel#0;class#MyLabel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/MenuButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        <state relative-caret-position="238">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MenuButton#0;class#MenuButton#0" />
@@ -521,20 +566,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/Okno.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="238">
+          <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/MyLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Okno#0;class#Okno#0" />
           </folding>
         </state>
       </provider>
@@ -542,55 +578,41 @@
     <entry file="file://$PROJECT_DIR$/src/gra/Znak.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding>
-            <element signature="e#2180#2181#0" expanded="true" />
-            <element signature="e#2224#2225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gra/Ranking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2689#2690#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="160" column="42" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+        <state relative-caret-position="143">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#3102:4171" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gra/Plansza.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="298" column="10" lean-forward="true" selection-start-line="298" selection-start-column="10" selection-end-line="298" selection-end-column="10" />
+        <state relative-caret-position="1411">
+          <caret line="361" column="4" selection-start-line="361" selection-start-column="4" selection-end-line="361" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1109#4231#0" />
             <element signature="method#Plansza#0;class#Plansza#0" />
-            <element signature="e#5494#6323#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="method#myRepaint#0;class#Plansza#0" />
+            <element signature="method#firstLevel#0;class#Plansza#0" />
+            <element signature="method#secondLevel#0;class#Plansza#0" />
+            <element signature="method#thirdLevel#0;class#Plansza#0" />
             <element signature="method#resetLevel#0;class#Plansza#0" />
-            <element signature="e#9574#9608#1" />
-            <element signature="e#10781#10782#0" expanded="true" />
-            <element signature="e#9640#9675#1" />
-            <element signature="e#10848#10849#0" expanded="true" />
-            <element signature="e#9703#9732#1" />
-            <element signature="e#10905#10906#0" expanded="true" />
-            <element signature="e#9763#9795#1" />
-            <element signature="e#10968#10969#0" expanded="true" />
-            <element signature="e#9824#9854#1" />
-            <element signature="e#11027#11028#0" expanded="true" />
+            <element signature="e#10915#10916#0" expanded="true" />
+            <element signature="e#10946#10947#0" expanded="true" />
+            <element signature="e#10976#10977#0" expanded="true" />
+            <element signature="e#11005#11006#0" expanded="true" />
           </folding>
         </state>
       </provider>

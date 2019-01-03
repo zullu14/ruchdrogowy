@@ -4,12 +4,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
+/**
+ * Interaktywna gra edukacyjna Ruch Drogowy
+ * @author Michał Baranowski
+ */
 public class Main extends JFrame {
 
+    /**
+     * Konstruktor okna początkowego przed rozpoczęciem gry; Ustawia rozmiar okna 1280/1024 px
+     * @param nazwa tytuł okna
+     */
     Main(String nazwa) {
         super(nazwa);
         setSize(1280,1024);
@@ -17,11 +22,16 @@ public class Main extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * Metoda uruchamia grę. Tworzy okno początkowe, okno rozgrywki, okno menu i okno rankingu.
+     * Obsługuje również przechodzenie pomiędzy oknami poprzez ActionListenery
+     */
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
 
+                /* Okno początkowe */
                 JFrame start = new Main("Ruch Drogowy");
                 JPanel controlPanel = new JPanel();
                 controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.PAGE_AXIS));
@@ -31,10 +41,10 @@ public class Main extends JFrame {
                 start.add(controlPanel, BorderLayout.CENTER);
                 start.setVisible(true);
 
+                /* Okno rozgrywki */
                 Okno o = new Okno("Rozgrywka");
                 Plansza poleGry = new Plansza();
                 o.add(poleGry, BorderLayout.CENTER);
-
                 JPanel menubar =new JPanel();
                 JLabel poziom = new MyLabel("POZIOM: "+(poleGry.getLevel()));
                 JLabel punktacja = new MyLabel("PUNKTY: "+(poleGry.getPunkty()));
@@ -51,6 +61,7 @@ public class Main extends JFrame {
                 o.add(menubar, BorderLayout.PAGE_END);
                 o.setVisible(false);
 
+                /* Okno menu */
                 JFrame oknoMenu = new Main("MENU");
                 JPanel menuPanel = new JPanel();
                 menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.PAGE_AXIS));
@@ -78,7 +89,7 @@ public class Main extends JFrame {
                 ranking.add(menuButtonBar, BorderLayout.PAGE_END);
                 ranking.setVisible(false);
 
-
+                /* Aktualizacja JLabeli z poziomem, punktami i prędkością */
                 Timer timer0 = new Timer(100, new ActionListener() {
                     int lev0 = 1;
                     int v0 = 20;
@@ -104,7 +115,6 @@ public class Main extends JFrame {
                     }
                 });
 
-                //actionEvent
                 b_start.addActionListener(actionEvent -> {
 
                     start.setVisible(false);
@@ -114,7 +124,7 @@ public class Main extends JFrame {
                     timer0.start();
 
 
-                }); //actionListener
+                });
 
                 mButton.addActionListener(actionEvent -> {
 
@@ -123,7 +133,7 @@ public class Main extends JFrame {
                     o.setVisible(false);
                     oknoMenu.setVisible(true);
 
-                }); //actionListener
+                });
 
                 resumeB.addActionListener(actionEvent -> {
 
@@ -156,7 +166,7 @@ public class Main extends JFrame {
                     ranking.setVisible(false);
                     oknoMenu.setVisible(true);
 
-                }); //actionListener
+                });
 
                 finishB.addActionListener(actionEvent -> {
 
